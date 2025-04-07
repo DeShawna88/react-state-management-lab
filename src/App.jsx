@@ -94,7 +94,11 @@ const App = () => {
 
   const handleAddFighter = (fighter) => {
     setTeam([...team, fighter]);
-  }
+  };
+
+  const handleRemoveFighter = () => {
+
+  };
 
 
   return (
@@ -105,11 +109,13 @@ const App = () => {
           <ul>
             {team.map((teamMate) => (
             <>
-            <li key={index}>{<img src={teamMate.img} />}
+            <li key={teamMate.id}>
+              <img src={teamMate.img} />
             <p>{teamMate.name}</p>
             <p>Price: {teamMate.price}</p>
             <p>Strength: {teamMate.strength}</p>
             <p>Agility: {teamMate.agility}</p>
+            <button onClick={() => handleRemoveFighter(teamMate)}>Remove</button>
             </li>
             </>
             ))}
@@ -125,7 +131,7 @@ const App = () => {
         <p>Price: {zombieFighter.price}</p>
         <p>Strength: {zombieFighter.strength}</p>
         <p>Agility: {zombieFighter.agility}</p>
-        <button onClick={() => handleAddFighter({zombieFighter})}>Add</button>
+        <button onClick={() => handleAddFighter(zombieFighter)}>Add</button>
         </li>
         </>
       ))}
